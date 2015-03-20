@@ -107,13 +107,15 @@ int main()
 	}
     }
 }
-  // Functions Declarations	
-	/*
-	 * menu function this displays the menu options
-	 *
-	*/
-	void menu()
-	{
+	/* Function Declarations*/
+/*
+ * Menu function this displays the menu options
+ * Lab #: 3
+ * Lab Date: January 30th, 2015
+ * Revision Date: February 6th,2015
+ */
+void menu()
+{
  	 printf("\n\tPlease select an option below: \n");
  	 printf("\t d\tdump memory\n");
  	 printf("\t g\tgo - run the entire program\n");
@@ -125,10 +127,17 @@ int main()
  	 printf("\t w\twrite file\n");
  	 printf("\t z\treset all registers to zero\n");
  	 printf("\t ?,h\tdisplay list of commands\n");	 	
-	}
+}
 
-	int LoadFile(void *memory, unsigned int max)
-	{
+/*
+ * LoadFile prompts user to enter a filename and
+ * than loads that file into memory up to MAX_MEM bytes
+ * Lab #: 3
+ * Lab Date: January 30th, 2015
+ * Revision Date: February 6th,2015
+ */
+int LoadFile(void *memory, unsigned int max)
+{
 	int size = 0;
 	char file_name[BUFFER_IN];
 	int result;
@@ -160,10 +169,18 @@ int main()
 	rewind(f);
 	return size;
 
-	}
+}
 
-	void WriteFile(void *memory)
-	{
+/*
+ * WriteFile prompts user to enter a filename and
+ * than writes X(hex) #of bytes to that file.
+ * will overwrite file contents, pending overwrite confirm. 
+ * Lab #: 3
+ * Lab Date: January 30th, 2015
+ * Revision Date: February 6th,2015
+ */
+void WriteFile(void *memory)
+{
 
 	int size;
 	unsigned int res; /* result of fwrite */
@@ -198,10 +215,17 @@ int main()
 	}
 	fclose(f);
 
-	}
+}
 
-	void dumpMemory(void *memory, unsigned int offset, unsigned int length)
-	{
+/*
+ * dumpMemory prompts user to enter a filename and
+ * than writes X(hex) #of bytes to that file.
+ * will overwrite file contents, pending overwrite confirm. 
+ * Lab Date: January 30th, 2015
+ * Revision Date: February 6th,2015
+ */
+void dumpMemory(void *memory, unsigned int offset, unsigned int length)
+{
 	unsigned int i, j;
 	unsigned int row_length = 0x10;
 	
@@ -233,10 +257,18 @@ int main()
 	break;
 	}
 	return;
-	}
+}
+eXz<
+/*zzz<ax321		``1`	Q`	3q<
+ * modMemory prompts user to enter a filename and
+ * than writes X(hex) #of bytes to that file.
+ * will overwrite file contents, pending overwrite confirm. 
+ * Lab Date: January 30th, 2015
+ * Revision Date: February 6th,2015
+ */
 
-	void modMemory(void *memory, unsigned int offset)
-	{
+void modMemory(void *memory, unsigned int offset)
+{
 	char input[HEX_INPUT];
 	unsigned long buffer;
 	
@@ -256,11 +288,10 @@ int main()
 	input[(strlen(input) - 1)] = '\0'; /* remove the \n */
 	if(strcmp(input, ".") == 0)
 	return;
-	/* stroul() = string to unsigned long */
 	buffer = strtoul(input, NULL, HEX);
 	*((char *) memory + offset) = (char) buffer;
 	if(++offset == MAX_MEM)
 	return;
 	}
 	return;
-	}
+}
