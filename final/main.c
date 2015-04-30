@@ -3,7 +3,6 @@
 
 int main()
 {
-    start();
-
+    begin();
     return 0;
 }
